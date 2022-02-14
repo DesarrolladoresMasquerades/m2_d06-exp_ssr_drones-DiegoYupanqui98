@@ -1,1 +1,25 @@
-<h2>Available drones</h2>
+<h2 class="subtitle">Available drones</h2>
+<ol class="list-container">
+    {{#each drones}}
+    <div class="card">
+        <img src="https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_926e75d45f2a997152f4401844b3b4d5.jpg"
+            class="card-img-top" alt="">
+        <div class="card-body">
+            <h2 class="card-title">{{name}}</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Propellers: {{propellers}}</li>
+                <li class="list-group-item">Max Speed: {{maxSpeed}}</li>
+            </ul>
+
+            <div class="flex-row">
+                <a href="/drones/{{_id}}/edit" class="btn btn-primary">Edit this drone</a>
+                <form action="/drones/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    {{/each}}
+</ol>
+<a href="/" class="back-btn btn btn-light">Back</a>
